@@ -42,6 +42,24 @@ This project demonstrates backend development using Spring Boot by implementing 
 
 ---
 
+## Quick Start
+
+Run the application and test quickly:
+
+GET http://localhost:8080/health
+
+POST http://localhost:8080/orders
+
+Body:
+{
+  "itemName": "Test Item",
+  "quantity": 1
+}
+
+GET http://localhost:8080/orders
+
+---
+
 ## API Documentation
 
 Swagger UI is available at:
@@ -58,66 +76,39 @@ http://localhost:8080
 
 ## Example Endpoints
 
-- GET /orders - Retrieve all orders
-- GET /orders/{id} - Retrieve an order by ID
-- POST /orders - Create a new order
-- PUT /orders/{id}/status - Update order status
-- DELETE /orders/{id} - Delete an order
-- GET /health - API health check
+- GET /orders
+- GET /orders/{id}
+- POST /orders
+- PUT /orders/{id}/status
+- DELETE /orders/{id}
+- GET /health
 
 ---
 
 ## Query Examples
 
-Get All Orders  
 GET /orders  
-
-Get Order By ID  
 GET /orders/1  
 
-Pagination  
 GET /orders?page=0&size=5  
 
-Sorting (createdAt desc)  
 GET /orders?sortBy=createdAt&direction=desc  
-
-Sorting (itemName asc)  
 GET /orders?sortBy=itemName&direction=asc  
-
-Sorting (quantity desc)  
 GET /orders?sortBy=quantity&direction=desc  
-
-Sorting (updatedAt asc)  
 GET /orders?sortBy=updatedAt&direction=asc  
 
-Filter by Status (PENDING)  
 GET /orders?status=PENDING  
-
-Filter by Status (PROCESSING)  
 GET /orders?status=PROCESSING  
-
-Filter by Status (READY_FOR_PICKUP)  
 GET /orders?status=READY_FOR_PICKUP  
-
-Filter by Status (COMPLETED)  
 GET /orders?status=COMPLETED  
-
-Filter by Status (CANCELLED)  
 GET /orders?status=CANCELLED  
 
-Pagination + Sorting  
 GET /orders?page=0&size=10&sortBy=updatedAt&direction=desc  
-
-Pagination + Filtering  
 GET /orders?page=0&size=5&status=PROCESSING  
-
-Sorting + Filtering  
 GET /orders?status=READY_FOR_PICKUP&sortBy=createdAt&direction=asc  
 
-Full Combined Example  
 GET /orders?page=1&size=5&sortBy=quantity&direction=desc&status=PENDING  
 
-Health Check  
 GET /health  
 
 ---
@@ -141,22 +132,24 @@ Update Order Status
 }
 ```
 
-Allowed status values:
+Allowed values:
 - PENDING
 - PROCESSING
 - READY_FOR_PICKUP
 - COMPLETED
 - CANCELLED
 
+---
+
 ## Example Response
 
 ### Get Order By ID
 
-`GET /orders/1`
+GET /orders/1
 
 Response:
 
-```json
+```
 {
   "id": 1,
   "itemName": "Nike Shoes",
@@ -166,14 +159,15 @@ Response:
   "updatedAt": "2026-03-28T19:00:00"
 }
 ```
+---
 
 ### Paginated Orders
 
-`GET /orders?page=0&size=5`
+GET /orders?page=0&size=5
 
 Response:
 
-```json
+```
 {
   "content": [
     {
@@ -220,13 +214,19 @@ Query Parameters:
 
 ---
 
+## API Constraints
+
+- Maximum page size is 50
+- Only predefined fields can be used for sorting
+- Invalid query parameters return structured error responses
+
+---
+
 ## Error Handling
 
-The API returns structured JSON responses for:
-
-- 400 Bad Request (validation errors, invalid parameters)
-- 404 Not Found (order not found)
-- 409 Conflict (invalid status transition)
+- 400 Bad Request
+- 404 Not Found
+- 409 Conflict
 
 ---
 
@@ -240,21 +240,43 @@ The API returns structured JSON responses for:
 
 ---
 
+## Architecture
+
+Controller → Service → Repository → Database
+
+---
+
+## Design Decisions
+
+- DTOs used to control API input/output
+- Global exception handler for consistent responses
+- Restricted sorting fields to prevent invalid queries
+- Business logic kept in service layer
+- Enum used for order status for type safety
+
+---
+
+## Local Testing
+
+A requests.http file is included for quick API testing inside IntelliJ.
+
+---
+
 ## Project Structure
 
-- controller - API endpoints
-- service - business logic
-- repository - database access
-- model - entities and enums
-- dto - request/response objects
-- exceptions - global error handling
-- config - Swagger configuration
+- controller
+- service
+- repository
+- model
+- dto
+- exceptions
+- config
 
 ---
 
 ## Why I Built This
 
-I built this project to strengthen my backend development skills and create a portfolio piece that demonstrates practical Spring Boot knowledge, including REST API design, validation, pagination, sorting, filtering, and structured error handling.
+I built this project to strengthen my backend development skills and demonstrate real-world API design, validation, pagination, sorting, filtering, and structured error handling.
 
 ---
 
