@@ -79,12 +79,14 @@ http://localhost:8080
 
 ## Example Endpoints
 
+```http
 - GET /orders
 - GET /orders/{id}
 - POST /orders
 - PUT /orders/{id}/status
 - DELETE /orders/{id}
 - GET /health
+```
 
 ---
 
