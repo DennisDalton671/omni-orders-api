@@ -145,7 +145,7 @@ Allowed values:
 
 ### Get Order By ID
 
-GET /orders/1
+`GET /orders/1`
 
 Response:
 
@@ -163,7 +163,7 @@ Response:
 
 ### Paginated Orders
 
-GET /orders?page=0&size=5
+`GET /orders?page=0&size=5`
 
 Response:
 
