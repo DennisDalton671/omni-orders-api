@@ -87,32 +87,45 @@ http://localhost:8080
 
 ## Query Examples
 
+### Basic Retrieval
+
 ```http
+GET /orders
+GET /orders/1
+GET /health
+```
 
-GET /orders  
-GET /orders/1  
+### Pagination
 
-GET /orders?page=0&size=5  
+```http
+GET /orders?page=0&size=5
+GET /orders?page=1&size=5
+```
 
-GET /orders?sortBy=createdAt&direction=desc  
-GET /orders?sortBy=itemName&direction=asc  
-GET /orders?sortBy=quantity&direction=desc  
-GET /orders?sortBy=updatedAt&direction=asc  
+###Sorting
 
-GET /orders?status=PENDING  
-GET /orders?status=PROCESSING  
-GET /orders?status=READY_FOR_PICKUP  
-GET /orders?status=COMPLETED  
-GET /orders?status=CANCELLED  
+```http
+GET /orders?sortBy=createdAt&direction=desc
+GET /orders?sortBy=itemName&direction=asc
+GET /orders?sortBy=quantity&direction=desc
+GET /orders?sortBy=updatedAt&direction=asc
+```
 
+### Filtering by Status
+
+```http
 GET /orders?page=0&size=10&sortBy=updatedAt&direction=desc  
 GET /orders?page=0&size=5&status=PROCESSING  
-GET /orders?status=READY_FOR_PICKUP&sortBy=createdAt&direction=asc  
+GET /orders?status=READY_FOR_PICKUP&sortBy=createdAt&direction=asc
+```
 
-GET /orders?page=1&size=5&sortBy=quantity&direction=desc&status=PENDING  
+### Combined Examples
 
-GET /health  
-
+```http
+GET /orders?page=0&size=10&sortBy=updatedAt&direction=desc
+GET /orders?page=0&size=5&status=PROCESSING
+GET /orders?status=READY_FOR_PICKUP&sortBy=createdAt&direction=asc
+GET /orders?page=1&size=5&sortBy=quantity&direction=desc&status=PENDING
 ```
 
 ---
