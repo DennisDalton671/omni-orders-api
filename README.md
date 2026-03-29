@@ -87,6 +87,8 @@ http://localhost:8080
 
 ## Query Examples
 
+```
+
 GET /orders  
 GET /orders/1  
 
@@ -110,6 +112,8 @@ GET /orders?status=READY_FOR_PICKUP&sortBy=createdAt&direction=asc
 GET /orders?page=1&size=5&sortBy=quantity&direction=desc&status=PENDING  
 
 GET /health  
+
+```
 
 ---
 
