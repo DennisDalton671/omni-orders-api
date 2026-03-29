@@ -87,7 +87,7 @@ http://localhost:8080
 
 ## Query Examples
 
-```
+```http
 
 GET /orders  
 GET /orders/1  
