@@ -67,7 +67,7 @@ GET http://localhost:8080/orders
 
 Swagger UI is available at:
 
-```http
+```md
 http://localhost:8080/swagger-ui.html
 ```
 
