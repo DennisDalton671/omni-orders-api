@@ -85,47 +85,36 @@ http://localhost:8080
 
 ---
 
+```md
 ## Query Examples
 
 ### Basic Retrieval
-
-```http
-GET /orders
-GET /orders/1
-GET /health
-```
+- All orders: `GET /orders`
+- Order by ID: `GET /orders/1`
+- Health check: `GET /health`
 
 ### Pagination
+- First page, 5 results: `GET /orders?page=0&size=5`
+- Second page, 5 results: `GET /orders?page=1&size=5`
 
-```http
-GET /orders?page=0&size=5
-GET /orders?page=1&size=5
-```
-
-###Sorting
-
-```http
-GET /orders?sortBy=createdAt&direction=desc
-GET /orders?sortBy=itemName&direction=asc
-GET /orders?sortBy=quantity&direction=desc
-GET /orders?sortBy=updatedAt&direction=asc
-```
+### Sorting
+- Newest first: `GET /orders?sortBy=createdAt&direction=desc`
+- Item name ascending: `GET /orders?sortBy=itemName&direction=asc`
+- Quantity descending: `GET /orders?sortBy=quantity&direction=desc`
+- Updated date ascending: `GET /orders?sortBy=updatedAt&direction=asc`
 
 ### Filtering by Status
-
-```http
-GET /orders?page=0&size=10&sortBy=updatedAt&direction=desc  
-GET /orders?page=0&size=5&status=PROCESSING  
-GET /orders?status=READY_FOR_PICKUP&sortBy=createdAt&direction=asc
-```
+- Pending: `GET /orders?status=PENDING`
+- Processing: `GET /orders?status=PROCESSING`
+- Ready for pickup: `GET /orders?status=READY_FOR_PICKUP`
+- Completed: `GET /orders?status=COMPLETED`
+- Cancelled: `GET /orders?status=CANCELLED`
 
 ### Combined Examples
-
-```http
-GET /orders?page=0&size=10&sortBy=updatedAt&direction=desc
-GET /orders?page=0&size=5&status=PROCESSING
-GET /orders?status=READY_FOR_PICKUP&sortBy=createdAt&direction=asc
-GET /orders?page=1&size=5&sortBy=quantity&direction=desc&status=PENDING
+- Pagination + sorting: `GET /orders?page=0&size=10&sortBy=updatedAt&direction=desc`
+- Pagination + filtering: `GET /orders?page=0&size=5&status=PROCESSING`
+- Sorting + filtering: `GET /orders?status=READY_FOR_PICKUP&sortBy=createdAt&direction=asc`
+- Full example: `GET /orders?page=1&size=5&sortBy=quantity&direction=desc&status=PENDING`
 ```
 
 ---
