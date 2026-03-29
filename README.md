@@ -126,16 +126,20 @@ GET /health
 
 Create Order
 
+```
 {
   "itemName": "Nike Shoes",
   "quantity": 2
 }
+```
 
 Update Order Status
 
+```
 {
   "status": "PROCESSING"
 }
+```
 
 Allowed status values:
 - PENDING
@@ -148,10 +152,11 @@ Allowed status values:
 
 ### Get Order By ID
 
-GET /orders/1
+`GET /orders/1`
 
 Response:
 
+```json
 {
   "id": 1,
   "itemName": "Nike Shoes",
@@ -160,15 +165,15 @@ Response:
   "createdAt": "2026-03-28T18:45:00",
   "updatedAt": "2026-03-28T19:00:00"
 }
-
-## Example Response
+```
 
 ### Paginated Orders
 
-GET /orders?page=0&size=5
+`GET /orders?page=0&size=5`
 
 Response:
 
+```json
 {
   "content": [
     {
@@ -195,6 +200,7 @@ Response:
   "totalElements": 6,
   "totalPages": 2
 }
+```
 
 ---
 
