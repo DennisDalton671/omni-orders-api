@@ -212,6 +212,38 @@ Response:
 
 ---
 
+---
+
+## Screenshots
+
+### Swagger UI Overview
+
+<p align="center">
+  <img src="other_files/Swagger_Overview.png" width="800"/>
+</p>
+
+<p align="center"><em>Overview of available API endpoints</em></p>
+
+---
+
+### Example Request & Response
+
+<p align="center">
+  <img src="other_files/Swagger_Example.png" width="800"/>
+</p>
+
+<p align="center"><em>Example request demonstrating pagination, sorting, and filtering</em></p>
+
+---
+
+## Postman Collection
+
+You can import and test all endpoints using the included Postman collection:
+
+[Download Collection](other_files/Omni_Orders_Postman.json)
+
+---
+
 ## Validation Rules
 
 Create Order:
