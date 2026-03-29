@@ -325,7 +325,7 @@ A requests.http file is included for quick API testing inside IntelliJ.
 
 ## Why I Built This
 
-I built this project to strengthen my backend development skills and demonstrate real-world API design, validation, pagination, sorting, filtering, and structured error handling.
+I built this project to strengthen my backend development using Spring Boot and demonstrate real-world API design, validation, pagination, sorting, filtering, and structured error handling.
 
 ---
 
