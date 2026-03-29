@@ -144,6 +144,58 @@ Allowed status values:
 - COMPLETED
 - CANCELLED
 
+## Example Response
+
+### Get Order By ID
+
+GET /orders/1
+
+Response:
+
+{
+  "id": 1,
+  "itemName": "Nike Shoes",
+  "quantity": 2,
+  "status": "PROCESSING",
+  "createdAt": "2026-03-28T18:45:00",
+  "updatedAt": "2026-03-28T19:00:00"
+}
+
+## Example Response
+
+### Paginated Orders
+
+GET /orders?page=0&size=5
+
+Response:
+
+{
+  "content": [
+    {
+      "id": 6,
+      "itemName": "Pants",
+      "quantity": 68,
+      "status": "PENDING",
+      "createdAt": "2026-03-28T18:14:16.430921",
+      "updatedAt": "2026-03-28T18:14:16.430921"
+    },
+    {
+      "id": 5,
+      "itemName": "Shirt",
+      "quantity": 12,
+      "status": "PENDING",
+      "createdAt": "2026-03-28T18:14:00.017942",
+      "updatedAt": "2026-03-28T18:14:00.017942"
+    }
+  ],
+  "pageable": {
+    "pageNumber": 0,
+    "pageSize": 5
+  },
+  "totalElements": 6,
+  "totalPages": 2
+}
+
 ---
 
 ## Validation Rules
