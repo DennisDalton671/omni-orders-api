@@ -51,10 +51,13 @@ GET http://localhost:8080/health
 POST http://localhost:8080/orders
 
 Body:
+
+```json
 {
   "itemName": "Test Item",
   "quantity": 1
 }
+```
 
 GET http://localhost:8080/orders
 
@@ -64,7 +67,9 @@ GET http://localhost:8080/orders
 
 Swagger UI is available at:
 
+```http
 http://localhost:8080/swagger-ui.html
+```
 
 ---
 
