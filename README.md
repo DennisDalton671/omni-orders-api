@@ -117,7 +117,7 @@ GET /health
 
 Create Order
 
-```
+```json
 {
   "itemName": "Nike Shoes",
   "quantity": 2
@@ -126,7 +126,7 @@ Create Order
 
 Update Order Status
 
-```
+```json
 {
   "status": "PROCESSING"
 }
@@ -149,7 +149,7 @@ GET /orders/1
 
 Response:
 
-```
+```json
 {
   "id": 1,
   "itemName": "Nike Shoes",
@@ -167,7 +167,7 @@ GET /orders?page=0&size=5
 
 Response:
 
-```
+```json
 {
   "content": [
     {
