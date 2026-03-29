@@ -79,7 +79,7 @@ http://localhost:8080
 
 ## Example Endpoints
 
-```http
+```bash
 - GET /orders
 - GET /orders/{id}
 - POST /orders
